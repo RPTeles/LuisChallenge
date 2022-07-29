@@ -7,8 +7,9 @@
             $strt = strtolower($str1);
             $strt = preg_replace('/\p{P}/', '', $strt);
             $strt = $strt . " ";
-                      
-            $check = strtolower($str2);
+            $check = trim($str2);
+            $check = strtolower($check);
+            $check = preg_replace('/\p{P}/', '', $check);
             $check1 = $check . " ";
             //$check2 = " " . $str2;
             $check3 = " " . $check . " ";
@@ -18,7 +19,7 @@
 
             if (str_contains($strt, $check)) {
 
-                $result = "mb";
+                $result = "no";
 
                
                 if (strpos($strt, $check) == 0 && str_contains($strt, $check1)) {  //primeira palavra
@@ -44,7 +45,7 @@
         }
 
         $string1 = "This, is a string de testes!";
-        $string2 = " a";
+        $string2 = "is a string";
 
         checkString($string1, $string2);
         
