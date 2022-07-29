@@ -7,24 +7,25 @@
             $strt = strtolower($str1);
             $strt = preg_replace('/\p{P}/', '', $strt);
             $strt = $strt . " ";
-                        
-            $check1 = $str2 . " ";
+                      
+            $check = strtolower($str2);
+            $check1 = $check . " ";
             //$check2 = " " . $str2;
-            $check3 = " " . $str2 . " ";
+            $check3 = " " . $check . " ";
 
 
           
 
-            if (str_contains($strt, $str2)) {
+            if (str_contains($strt, $check)) {
 
-                $result = "no";
+                $result = "mb";
 
                
-                if (strpos($strt, $str2) == 0 && str_contains($strt, $check1)) {  //primeira palavra
+                if (strpos($strt, $check) == 0 && str_contains($strt, $check1)) {  //primeira palavra
 
                     $result = "yes";    
 
-                } elseif (strpos($strt, $str2) >> 0 && str_contains($strt, $check3)) { //palavra no meio da frase
+                } elseif (strpos($strt, $check) >> 0 && str_contains($strt, $check3)) { //palavra no meio da frase
 
                     $result = "yes"; 
 
@@ -42,8 +43,8 @@
 
         }
 
-        $string1 = "String de testes!";
-        $string2 = "testes";
+        $string1 = "This, is a string de testes!";
+        $string2 = " a";
 
         checkString($string1, $string2);
         
